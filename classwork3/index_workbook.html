@@ -145,6 +145,7 @@
 		let on_place = false;
 
 		item.addEventListener('dragstart', (e) => {
+			on_place = false;
 			e.dataTransfer.setData('text/plain', e.target.id);
 			setTimeout(() => {
 				e.target.classList.add('hide');
