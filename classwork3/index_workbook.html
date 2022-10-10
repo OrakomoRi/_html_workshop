@@ -5,17 +5,78 @@
 	<title>Classwork 3</title>
 	<meta name="author" content="OrakomoRi">
 	<link rel="icon" href="https://i.imgur.com/wIbsb0z.png">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 20px;
+		}
+		iframe {
+			border: none;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+		.container h2 {
+			margin-bottom: 10px;
+		}
+		.drop_containers {
+			display: flex;
+		}
+		.drop_containers__container {
+			margin: 0 10px 0 0;
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		#item {
+			width: 100px;
+			height: 100px;
+			background: #000;
+		}
+		.hide {
+			display: none;
+		}
+		.drag_over {
+			border: 1px dashed rgb(13, 0, 255);
+		}
+		form > * {
+			margin: 5px 0;
+		}
+	</style>
 </head>
 
 <body>
-	<iframe width="480px" height="295px" src="https://www.youtube.com/embed/1Psjws97FoA?autoplay=1" title="YouTube video player" id="YouTube_video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-	<br>
+	<div class="container">
+		<iframe width="480px" height="295px" src="https://www.youtube.com/embed/1Psjws97FoA" title="YouTube video player" id="YouTube_video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
 
-	<button id="geolocation_button">Geolocation of me</button>
-	<p id="geolocation"></p>
-	<br>
+	<div class="container">
+		<button id="geolocation_button">Geolocation of me</button>
+		<p id="geolocation"></p>
+	</div>
 
-	<div class="contact_form">
+	<div class="container">
+		<h2>Drag&Drop</h2>
+		<div class="drop_containers">
+			<div class="drop_containers__container">
+				<div id="item" draggable="true"></div>
+			</div>
+			<div class="drop_containers__container"></div>
+			<div class="drop_containers__container"></div>
+		</div>
+	</div>
+
+	<div class="container">
 		<form id="contact" action="https://www.w3schools.com/action_page.php" target="_blank">
 			<h2>Contact me</h2>
 			<label for="nickname">Nickname:</label>
@@ -25,10 +86,10 @@
 			<input type="email" name="email" placeholder="Your email..." required>
 			<br>
 			<p>Rate my service:</p>
-			<input type="radio" name="service_feedback" value="Poor" required>Poor
-			<input type="radio" name="service_feedback" value="Normal">Normal
-			<input type="radio" name="service_feedback" value="Good">Good
-			<input type="radio" name="service_feedback" value="Godlike">Godlike
+			<input type="radio" name="service_feedback" value="Poor" title="Poor" required> Poor
+			<input type="radio" name="service_feedback" value="Normal" title="Normal"> Normal
+			<input type="radio" name="service_feedback" value="Good" title="Good"> Good
+			<input type="radio" name="service_feedback" value="Godlike" title="Godlike"> Godlike
 			<br>
 			<p>What mark?</p>
 			<select name="mark" required>
@@ -52,29 +113,76 @@
 	</div>
 
 	<script>
+		// ID of yt video
 		let source = document.querySelector('#YouTube_video').src.match(/(?<=embed\/).+(?=\?)/);
-		if (source != null) {
+		if (source != null) { // if there is some ID, then it gets title
 			fetch (`https://www.googleapis.com/youtube/v3/videos?id=${source[0]}&key=AIzaSyBDzEzQUybCrVAULPSqFktGnoBUrK--DSg&part=snippet`).then((res) => {
 				return res.json();
-			}).then((e) => {
+			}).then((e) => { // then applies the title to webpage title
 				document.head.querySelector('title').innerText = e.items[0].snippet.title;
 			})
 		}
 
+		// function to change text of the location <p> tag
 		function display_location(message) {
 			document.querySelector('#geolocation').textContent = message;
 		}
 
+		// event for clicking a button
 		document.querySelector('#geolocation_button').addEventListener('click', () => {
-			if (navigator.geolocation) {
+			if (navigator.geolocation) { // if everything is ok
 				navigator.geolocation.getCurrentPosition((position) => {
 					display_location(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
 				});
 			}
-			else {
+			else { // if there is some errors
 				display_location('Cannot display the geolocation.');
 			}
 		});
+
+		// Drag&Drop script
+		const item = document.querySelector('#item');
+		let on_place = false;
+
+		item.addEventListener('dragstart', (e) => {
+			e.dataTransfer.setData('text/plain', e.target.id);
+			setTimeout(() => {
+				e.target.classList.add('hide');
+			}, 0);
+		});
+		item.addEventListener('dragend', (e) => {
+			if (!on_place) {
+				e.target.classList.remove('hide');
+			}
+		});
+
+		const containers = document.querySelectorAll('.drop_containers__container');
+
+		containers.forEach(container => {
+			container.addEventListener('dragenter', (e) => {
+				e.preventDefault();
+				e.target.classList.add('drag_over');
+			});
+			container.addEventListener('dragover', (e) => {
+				e.preventDefault();
+				e.target.classList.add('drag_over');
+			});
+			container.addEventListener('dragleave', (e) => {
+				e.target.classList.remove('drag_over');
+			});
+			container.addEventListener('drop', (e) => {
+				e.target.classList.remove('drag_over');
+
+				const id = e.dataTransfer.getData('text/plain');
+				const draggable = document.getElementById(id)
+
+				e.target.appendChild(draggable);
+
+				draggable.classList.remove('hide');
+
+				on_place = true;
+			});
+		})
 	</script>
 </body>
 </html>
