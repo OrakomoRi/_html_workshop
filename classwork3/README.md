@@ -18,5 +18,5 @@
 ## [Task 5](https://github.com/OrakomoRi/_html_workshop/commit/7600251ddae28802643add2c7f66dd0d90425d32)
 > Find code example with HTML Geolocation on the Web. Add Geolocation code to your workshop. Process code and check if it work. Submit code to GitHub
 
-## [Task 5.1](https://github.com/OrakomoRi/_html_workshop/commit/0fd04fd79286786d7e40fd61fa6b187536f6c28f)
+## [Task 6](https://github.com/OrakomoRi/_html_workshop/commit/0fd04fd79286786d7e40fd61fa6b187536f6c28f)
 > Find code example with HTML Drag and Drop on the Web. Process code and check if it work. Submit code to GitHub
