@@ -5,3 +5,6 @@ Create a blank default .html page with Title as a notebook for HTML workshop. Na
 
 ## [Task 1.1](https://github.com/OrakomoRi/_html_workshop/blob/main/README.md)
 Create README.MD file for your repository
+
+## [Task 2](https://github.com/OrakomoRi/_html_workshop/commit/9f73113b03b029a8155d545ab895ad621a54ac9d)
+Create at least 1 sample link for GET or POST Method. Submit code to GitHub
