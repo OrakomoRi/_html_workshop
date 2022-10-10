@@ -2,12 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Notebook</title>
+	<title>Classwork 3</title>
 	<meta name="author" content="OrakomoRi">
 	<link rel="icon" href="https://i.imgur.com/wIbsb0z.png">
 </head>
 
 <body>
+	<iframe width="480px" height="295px" src="https://www.youtube.com/embed/1Psjws97FoA?autoplay=1" title="YouTube video player" id="YouTube_video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+
 	<div class="contact_form">
 		<form id="contact" action="https://www.w3schools.com/action_page.php" target="_blank">
 			<h2>Contact me</h2>
@@ -43,5 +45,16 @@
 			<button type="submit" id="submit_button">Submit</button>
 		</form>
 	</div>
+
+	<script>
+		let source = document.querySelector('#YouTube_video').src.match(/(?<=embed\/).+(?=\?)/);
+		if (source != null) {
+			fetch (`https://www.googleapis.com/youtube/v3/videos?id=${source[0]}&key=AIzaSyBDzEzQUybCrVAULPSqFktGnoBUrK--DSg&part=snippet`).then((res) => {
+				return res.json()
+			}).then((e) => {
+				document.head.querySelector('title').innerText = e.items[0].snippet.title
+			})
+		}
+	</script>
 </body>
 </html>
