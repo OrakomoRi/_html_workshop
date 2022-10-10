@@ -1,1 +1,1 @@
-# _html_workshop
+# HTML files for the course
