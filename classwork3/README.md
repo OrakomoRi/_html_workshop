@@ -8,3 +8,6 @@ Create README.MD file for your repository
 
 ## [Task 2](https://github.com/OrakomoRi/_html_workshop/commit/9f73113b03b029a8155d545ab895ad621a54ac9d)
 Create at least 1 sample link for GET or POST Method. Submit code to GitHub
+
+## [Task 3](https://github.com/OrakomoRi/_html_workshop/commit/9f73113b03b029a8155d545ab895ad621a54ac9d)
+Create <form> with GET or POST method in your HTML workbook. Use at least 5 form attributes, 3 elements. Form should have Submit functionality. Submit code to GitHub
