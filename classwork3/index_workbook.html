@@ -9,6 +9,11 @@
 
 <body>
 	<iframe width="480px" height="295px" src="https://www.youtube.com/embed/1Psjws97FoA?autoplay=1" title="YouTube video player" id="YouTube_video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+	<br>
+
+	<button id="geolocation_button">Geolocation of me</button>
+	<p id="geolocation"></p>
+	<br>
 
 	<div class="contact_form">
 		<form id="contact" action="https://www.w3schools.com/action_page.php" target="_blank">
@@ -20,10 +25,10 @@
 			<input type="email" name="email" placeholder="Your email..." required>
 			<br>
 			<p>Rate my service:</p>
-			<input type="radio" name="service_feedback" required>Poor
-			<input type="radio" name="service_feedback">Normal
-			<input type="radio" name="service_feedback">Good
-			<input type="radio" name="service_feedback">Godlike
+			<input type="radio" name="service_feedback" value="Poor" required>Poor
+			<input type="radio" name="service_feedback" value="Normal">Normal
+			<input type="radio" name="service_feedback" value="Good">Good
+			<input type="radio" name="service_feedback" value="Godlike">Godlike
 			<br>
 			<p>What mark?</p>
 			<select name="mark" required>
@@ -50,11 +55,26 @@
 		let source = document.querySelector('#YouTube_video').src.match(/(?<=embed\/).+(?=\?)/);
 		if (source != null) {
 			fetch (`https://www.googleapis.com/youtube/v3/videos?id=${source[0]}&key=AIzaSyBDzEzQUybCrVAULPSqFktGnoBUrK--DSg&part=snippet`).then((res) => {
-				return res.json()
+				return res.json();
 			}).then((e) => {
-				document.head.querySelector('title').innerText = e.items[0].snippet.title
+				document.head.querySelector('title').innerText = e.items[0].snippet.title;
 			})
 		}
+
+		function display_location(message) {
+			document.querySelector('#geolocation').textContent = message;
+		}
+
+		document.querySelector('#geolocation_button').addEventListener('click', () => {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition((position) => {
+					display_location(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
+				});
+			}
+			else {
+				display_location('Cannot display the geolocation.');
+			}
+		});
 	</script>
 </body>
 </html>
