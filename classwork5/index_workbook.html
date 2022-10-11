@@ -14,16 +14,54 @@
 	<form action="https://www.w3schools.com/action_page.php" target="_blank">
 		<input type="email" name="email" id="email" placeholder="Email" required>
 		<label for="email">Email</label>
-		<button type="submit" id="submit_button">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			Subscribe
-		</button>
+		<div class="button_container">
+			<img src="arrow.png" id="arrow1">
+			<button type="submit" id="submit_button">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				Subscribe
+			</button>
+			<img src="arrow.png" id="arrow2">
+		</div>
 	</form>
 
+	<script>
+		window.onload = () => {
+			let arrow1 = document.querySelector('#arrow1');
+			let arrow2 = document.querySelector('#arrow2');
+			startX1 = parseInt(elementsProperty(arrow1, 'left'));
+			startX2 = parseInt(elementsProperty(arrow2, 'left'));
+			startAnimation();
+		};
 
+		const refreshRate = 1000 / 60;
+		const maxOffset = 20;
+
+		function startAnimation() {
+			let speedX = 1;
+			let positionX1 = parseInt(elementsProperty(arrow1, 'left'));
+			let positionX2 = parseInt(elementsProperty(arrow2, 'left'));
+
+			window.setInterval(() => {
+				positionX1 += speedX;
+				positionX2 -= speedX;
+
+				if (positionX1 > startX1 + maxOffset || positionX1 < startX1 ||
+				positionX2 < startX2 - maxOffset || positionX2 > startX2) {
+					speedX *= -1;
+				}
+
+				arrow1.style.left = positionX1 + 'px';
+				arrow2.style.left = positionX2 + 'px';
+			}, refreshRate);
+		}
+
+		function elementsProperty(e, p) {
+			return window.getComputedStyle(e, null).getPropertyValue(p);
+		}
+	</script>
 </body>
 </html>
 

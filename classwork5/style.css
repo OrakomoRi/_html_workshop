@@ -87,6 +87,23 @@ input:required, input:invalid {
 	box-shadow: none;
 }
 
+.button_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+img {
+	position: relative;
+	width: 50px;
+}
+
+#arrow2 {
+	rotate: 180deg;
+}
+
 button {
 	font-size: var(--font-size-big);
 	background: none;
