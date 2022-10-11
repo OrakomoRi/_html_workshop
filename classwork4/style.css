@@ -1,16 +1,19 @@
+:root {
+	--padding-length: 2cm;
+	--border-width: 2px;
+}
 body {
 	margin-top: 0.7cm;
 	background: #000;
 }
 .page {
 	position: relative;
-	--border-width: 2px;
 	border-radius: var(--border-width);
 
-	margin: 0 auto 0.4cm;
-	padding: 2cm;
-	height: 25.7cm;
-	width: 17cm;
+	margin: 0 auto 0.5cm;
+	padding: var(--padding-length);
+	height: calc(29.7cm - var(--padding-length) * 2);
+	width: calc(21cm - var(--padding-length) * 2);
 	background: #222;
 	color: #ccc;
 }
