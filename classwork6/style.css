@@ -1,0 +1,146 @@
+:root {
+	--padding-length: 2cm;
+	--border-width: 2px;
+}
+
+body {
+	background: #000;
+	margin: 0;
+	padding: 0;
+}
+
+.body__light {
+	background: #fff;
+}
+
+#header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+
+	top: 0;
+	position: sticky;
+
+	width: 100%;
+	min-height: 50px;
+	z-index: 1;
+}
+
+.header_button {
+	position: relative;
+	background: #ddd;
+	color: #3e3e3e;
+	border: none;
+	outline: none;
+	padding: 15px;
+	margin: 10px 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.header__light__visible {
+	background: #eee;
+}
+
+.header__dark__visible {
+	background: #000;
+}
+
+.header_button:hover {
+	background: #bbb;
+}
+
+.header_button__dark {
+	background: #3e3e3e;
+	color: #ddd;
+}
+
+.header_button__dark:hover {
+	background: #5a5a5a;
+}
+
+.page {
+	position: relative;
+	border-radius: var(--border-width);
+
+	margin: 0.5cm auto;
+	padding: var(--padding-length);
+	height: calc(29.7cm - var(--padding-length) * 2);
+	width: calc(21cm - var(--padding-length) * 2);
+	background: #222;
+	color: #ccc;
+}
+
+.page__light {
+	background: #ccc;
+	color: #000;
+}
+
+.page::after {
+	position: absolute;
+	content: '';
+	top: calc(-1 * var(--border-width));
+	left: calc(-1 * var(--border-width));
+	z-index: -1;
+	width: calc(100% + var(--border-width) * 2);
+	height: calc(100% + var(--border-width) * 2);
+	background: linear-gradient(
+		60deg,
+		hsl(224, 85%, 66%),
+		hsl(269, 85%, 66%),
+		hsl(314, 85%, 66%),
+		hsl(359, 85%, 66%),
+		hsl(44, 85%, 66%),
+		hsl(89, 85%, 66%),
+		hsl(134, 85%, 66%),
+		hsl(179, 85%, 66%)
+	);
+	background-size: 300% 300%;
+	background-position: 0 50%;
+	border-radius: calc(2 * var(--border-width));
+	animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+	50% {
+		background-position: 100% 50%;
+	}
+}
+
+h1, h2, .title {
+	font-family: sans-serif;
+}
+
+h1, .title {
+	text-align: center;
+}
+
+h1 {			
+	font-size: 28pt;
+}
+
+h2 {
+	margin-bottom: 0.7cm;
+}
+
+i {
+	font-size: 12pt;
+}
+
+pre, #lastone {
+	font-family: serif;
+}
+
+pre {
+	margin-top: 0;
+}
+
+#whatis {
+	font-size: 18pt;
+}
+
+#lastone {
+	margin-left: 0.2cm;
+}
