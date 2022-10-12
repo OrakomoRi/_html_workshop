@@ -10,3 +10,5 @@
 ## [Classwork 5](https://github.com/OrakomoRi/_html_workshop/tree/main/classwork5)
 > Lecture 5 Classwork Assignmemt
 
+## [Classwork 6](https://github.com/OrakomoRi/_html_workshop/tree/main/classwork6)
+> Lecture 6 Classwork Assignmemt
