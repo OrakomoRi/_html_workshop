@@ -38,8 +38,8 @@ $(document).ready(function() {
 	// button to switch color mode
 	let mode = 0;
 	$('.header_button:nth-child(1)').click(function() {
-		$('#button_mode i').toggleClass('fa-sun-o');
-		$('#button_mode i').toggleClass('fa-moon-o');
+		$('.header_button:nth-child(1) i').toggleClass('fa-sun-o');
+		$('.header_button:nth-child(1) i').toggleClass('fa-moon-o');
 		$('.header_button').toggleClass('header_button__dark');
 		$('.page').toggleClass('page__light');
 		$('body').toggleClass('body__light');
