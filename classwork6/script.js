@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$('.header_button').toggleClass('header_button__dark');
 	}
 
-	// 
+	// scroll event to change the header after scrolling
 	$(window).scroll(function() {
 		if ($(window).scrollTop() > 0) {
 			if (mode % 2 == 1) {
@@ -55,6 +55,7 @@ $(document).ready(function() {
 		mode++;
 	});
 
+	// button to hide all the text except headlings
 	$('.header_button:nth-child(2)').click(function() {
 		$('p').slideToggle();
 		$('.page i').slideToggle();
@@ -65,23 +66,29 @@ $(document).ready(function() {
 		$('.header_button:nth-child(2) i').toggleClass('fa-plus');
 	});
 
+	// button to go up
 	$('.header_button:nth-child(3)').click(function() {
-		$("html, body").animate({scrollTop: 0}, 1000);
+		$("html, body").animate({scrollTop: 0}, $(window).scrollTop() / (2 * $(window).scrollTop() / 500));
 	});
 
 	// button to switch position of buttons in header
 	let orientation_clicked = false;
-	let move_length = 250;
 	$('.header_button:nth-child(4)').click(function() {
 		if (!orientation_clicked) {
 			$('.header_button').animate({
-				left: `+=${move_length}px`
-			}, move_length * 2);
+				left: '40vw'
+			}, {
+				duration: 'slow',
+				easing: 'linear'
+			});
 			orientation_clicked = true;
 		} else {
 			$('.header_button').animate({
-				left: `-=${move_length}px`
-			}, move_length * 2);
+				left: 0
+			}, {
+				duration: 'slow',
+				easing: 'linear'
+			});
 			orientation_clicked = false;
 		}
 		$('.header_button:nth-child(4) i').toggleClass('fa-arrow-right');

@@ -41,11 +41,11 @@ body {
 }
 
 .header__light__visible {
-	background: #eee;
+	background: rgba(238, 238, 238, 0.85);
 }
 
 .header__dark__visible {
-	background: #000;
+	background: rgba(0, 0, 0, 0.85);
 }
 
 .header_button:hover {
