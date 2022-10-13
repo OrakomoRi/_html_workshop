@@ -3,7 +3,6 @@
 	--border-width: 2px;
 }
 body {
-	margin-top: 0.7cm;
 	background: #000;
 }
 .page {
@@ -56,7 +55,7 @@ h1 {
 	font-size: 28pt;
 }
 h2 {
-	margin-bottom: 0.7cm;
+	margin-bottom: 18pt;
 }
 i {
 	font-size: 12pt;
@@ -69,7 +68,4 @@ pre {
 }
 #whatis {
 	font-size: 18pt;
-}
-#lastone {
-	margin-left: 0.2cm;
 }
