@@ -1,4 +1,7 @@
 # 10th classworks tasks
 
-## [Task 1]()
+## [Task 1](https://github.com/OrakomoRi/_html_workshop/commit/bd750b43a772205a012ab7d2ad13bddad3d7dedb)
 > Create a PHP function that calculates current date, time. Return output in a webpage footer copyright section. Commit code to the GitHub
+
+## [Task 2]()
+> Create PHP Form that contains fields Name, Surname, Date of Birth and button submit. Script should print provided information as an output. Commit code to the GitHub
