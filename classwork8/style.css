@@ -1,0 +1,125 @@
+:root {
+	--padding-length: 2cm;
+	--border-width: 2px;
+	--scrollbar-width: 8px;
+}
+
+body {
+	background: #000;
+	margin: 0;
+	padding: 0 50px;
+	color: #ccc;
+}
+
+body::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+body::-webkit-scrollbar {
+	width: var(--scrollbar-width);
+	background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #5d5d5d;
+}
+
+.body__light {
+	background: #fff;
+	color: #000;
+}
+
+nav {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	margin-top: 20px;
+
+	top: 0;
+	position: sticky;
+
+	width: 100%;
+	min-height: 50px;
+	height: 100%;
+	z-index: 1;
+}
+
+.header_button {
+	position: relative;
+	background: #ddd;
+	color: #000;
+	border: none;
+	outline: none;
+	margin: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: .5s;
+	padding: 15px 5px;
+}
+
+.header_button i {
+	margin: 15px;
+}
+
+.header__light__visible {
+	background: rgba(238, 238, 238, 0.85);
+}
+
+.header__dark__visible {
+	background: rgba(0, 0, 0, 0.85);
+}
+
+.header_button:hover {
+	background: #bbb;
+	color: #111;
+}
+
+.header_button__dark {
+	background: #3e3e3e;
+	color: #fff;
+}
+
+.header_button__dark:hover {
+	background: #5a5a5a;
+	color: #ddd;
+}
+
+.content {
+	margin: 20px 0;
+	padding: 20px;
+	border: 2px solid #fff;
+	background: #222;
+}
+
+.content__light {
+	border-color: #000;
+	background-color: #ddd;
+}
+
+h1, h2, .title {
+	font-family: sans-serif;
+}
+
+h1 {			
+	font-size: 28pt;
+}
+
+h2 {
+	margin-bottom: 18pt;
+}
+
+i {
+	font-size: 12pt;
+}
+
+pre, #lastone {
+	font-family: serif;
+}
+
+pre {
+	margin-top: 0;
+}
+
+#whatis {
+	font-size: 18pt;
+}
