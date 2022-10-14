@@ -98,6 +98,7 @@ nav {
 
 h1, h2, .title {
 	font-family: sans-serif;
+	color: inherit;
 }
 
 h1 {			
