@@ -1,0 +1,44 @@
+p {
+	font-weight: bolder;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+p:hover {
+	letter-spacing: .3px;
+}
+
+a {
+	text-decoration: none;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+a[href=""] {
+	font-size: 3em;
+	transition: .3s linear;
+}
+
+a[href=""]:hover {
+	color: #666;
+}
+
+/* Styles for JS */
+
+.circle {
+	position: absolute;
+	width: 75px;
+	height: 75px;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0 0 -50px;
+	background: #16c5cb;
+	border-radius: 80%;
+	backface-visibility: hidden;
+	opacity: .7;
+	pointer-events: none;
+	z-index: 10;
+}
