@@ -18,3 +18,6 @@
 
 ## [Classwork 10](https://github.com/OrakomoRi/_html_workshop/tree/main/classwork10)
 > Lecture 10 Classwork Assignmemt
+
+## [Laboratory work 1](https://github.com/OrakomoRi/_html_workshop/tree/main/lab1)
+> Laboratory Work 1 Assignment
